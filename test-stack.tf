@@ -28,10 +28,12 @@ resource "aws_subnet" "test_b" {
 }
 
 resource "aws_opsworks_stack" "test" {
-  name                         = "mj-test-stack"
-  region                       = "${var.aws_region}"
-  service_role_arn             = "arn:aws:iam::623134608261:role/aws-opsworks-service-role"
-  default_instance_profile_arn = "arn:aws:iam::623134608261:instance-profile/aws-opsworks-ec2-role"
-  vpc_id                       = "${aws_vpc.test.id}"
-  default_subnet_id            = "${aws_subnet.test_a.id}"
+  name                          = "mj-test-stack"
+  region                        = "${var.aws_region}"
+  service_role_arn              = "arn:aws:iam::623134608261:role/aws-opsworks-service-role"
+  default_instance_profile_arn  = "arn:aws:iam::623134608261:instance-profile/aws-opsworks-ec2-role"
+  vpc_id                        = "${aws_vpc.test.id}"
+  default_subnet_id             = "${aws_subnet.test_a.id}"
+  configuration_manager_version = "12"
+  default_os                    = "Ubuntu 16.04 LTS"
 }
