@@ -6,8 +6,8 @@ resource "aws_security_group" "web" {
 
 resource "aws_security_group_rule" "web_ingress_http" {
   type = "ingress"
-  from_port = 8080
-  to_port = 8080
+  from_port = "${var.instance_port}"
+  to_port = "${var.instance_port}"
   protocol = "tcp"
   security_group_id = "${aws_security_group.web.id}"
   cidr_blocks = ["0.0.0.0/0"]

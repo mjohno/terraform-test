@@ -1,6 +1,6 @@
 # Variable Defaults
 variable "aws_region" { default = "us-east-1"}
-variable "instance_port" { default = 8080 }
+variable "instance_port" { default = 80 }
 variable "route53_zone_id" { default = "Z3BRSPUKGCDDFR" }
 
 # Setup AWS as a terraform provider
