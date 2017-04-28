@@ -110,7 +110,8 @@ resource "aws_opsworks_stack" "test" {
 }
 
 resource "aws_opsworks_custom_layer" "test" {
-  name       = "Matt's Test Layer"
-  short_name = "mjt"
-  stack_id   = "${aws_opsworks_stack.test.id}"
+  name                  = "Matt's Test Layer"
+  short_name            = "mjt"
+  stack_id              = "${aws_opsworks_stack.test.id}"
+  elastic_load_balancer = "${aws_elb.test.name}"
 }
