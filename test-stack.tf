@@ -37,3 +37,9 @@ resource "aws_opsworks_stack" "test" {
   configuration_manager_version = "12"
   default_os                    = "Ubuntu 16.04 LTS"
 }
+
+resource "aws_opsworks_custom_layer" "test" {
+  name       = "Matt's Test Layer"
+  short_name = "mjt"
+  stack_id   = "${aws_opsworks_stack.test.id}"
+}
