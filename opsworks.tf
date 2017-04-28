@@ -7,7 +7,7 @@ resource "aws_opsworks_stack" "test" {
   default_subnet_id             = "${aws_subnet.test_a.id}"
   configuration_manager_version = "12"
   default_os                    = "Ubuntu 16.04 LTS"
-  use_custom_cookbooks          = "true"
+  use_custom_cookbooks          = true
   default_root_device_type      = "ebs"
   custom_cookbooks_source       = {
     type = "archive"
@@ -22,4 +22,5 @@ resource "aws_opsworks_custom_layer" "test" {
   elastic_load_balancer     = "${aws_elb.test.name}"
   custom_security_group_ids = ["${aws_security_group.web.id}"]
   custom_deploy_recipes     = ["nodejs_demo"]
+  auto_assign_public_ips    = true
 }
