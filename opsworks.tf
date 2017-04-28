@@ -24,3 +24,23 @@ resource "aws_opsworks_custom_layer" "test" {
   custom_deploy_recipes     = ["nodejs_demo"]
   auto_assign_public_ips    = true
 }
+
+resource "aws_opsworks_application" "test" {
+  name        = "Matt Test"
+  short_name  = "mjt"
+  stack_id    = "${aws_opsworks_stack.test.id}"
+  type        = "other"
+  description = "The Sample NodeJS Application"
+
+  environment = {
+    key    = "APP_ADMIN_EMAIL"
+    value  = "mattgjo@gmail.com"
+    secure = false
+  }
+
+  app_source = {
+    type     = "git"
+    revision = "master"
+    url      = "https://github.com/awslabs/opsworks-windows-demo-nodejs.git"
+  }
+}
