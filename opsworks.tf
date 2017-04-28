@@ -14,4 +14,5 @@ resource "aws_opsworks_custom_layer" "test" {
   short_name            = "mjt"
   stack_id              = "${aws_opsworks_stack.test.id}"
   elastic_load_balancer = "${aws_elb.test.name}"
+  custom_security_group_ids = ["${aws_security_group.web.id}"]
 }
