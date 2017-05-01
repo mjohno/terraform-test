@@ -10,7 +10,7 @@ resource "aws_security_group_rule" "web_ingress_http" {
   to_port = "${var.instance_port}"
   protocol = "tcp"
   security_group_id = "${aws_security_group.web.id}"
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks = ["${aws_security_group.elb.id}"]
 }
 
 resource "aws_security_group_rule" "web_egress_all" {

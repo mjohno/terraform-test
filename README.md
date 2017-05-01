@@ -55,4 +55,4 @@ Use Terraform to automate the provisioning of a stack within AWS that has 2 webs
 * Do Chef Stuff... (Not a demo app)
 * ELB Logging
 * HTTPS traffic
-* Use a smaller VCP?
+* Use a smaller VPC?
